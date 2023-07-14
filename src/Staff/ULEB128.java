@@ -1,8 +1,10 @@
+package Staff;
+
 import java.io.ByteArrayOutputStream;
 
 
 public class ULEB128 {
-    public static byte[] encode(long value) { //кодирование десятичного числа в ULEB128
+    public static byte[] encode(long value) { //кодирование десятичного числа в Staff.ULEB128
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
         do {
@@ -33,7 +35,7 @@ public class ULEB128 {
         System.out.println();
     }
 
-    private static long decode(String ulebNum) { //декодирование числа в формате ULEB128 в  десятичное число
+    private static long decode(String ulebNum) { //декодирование числа в формате Staff.ULEB128 в  десятичное число
         byte[] encoded = bitStringToByteArray(ulebNum);
         binaryPrint(encoded);
 

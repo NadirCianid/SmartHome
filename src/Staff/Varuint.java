@@ -1,3 +1,5 @@
+package Staff;
+
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +23,7 @@ public class Varuint {
         return value.length;
     }
 
-    public static byte[] encode(long value) { //кодирование десятичного числа в ULEB128
+    public static byte[] encode(long value) { //кодирование десятичного числа в Staff.ULEB128
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
         do {
@@ -36,7 +38,7 @@ public class Varuint {
         return out.toByteArray();
     }
 
-    public static long decode(byte[] encoded) { //декодирование числа в формате ULEB128 в  десятичное число
+    public static long decode(byte[] encoded) { //декодирование числа в формате Staff.ULEB128 в  десятичное число
         long value = 0;
         long shift = 0;
 

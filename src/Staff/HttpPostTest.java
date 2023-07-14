@@ -1,9 +1,10 @@
+package Staff;
+
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Base64;
 
 public class HttpPostTest {
@@ -12,7 +13,11 @@ public class HttpPostTest {
     public static void main(String[] args) {
         try {
             // Создание URL-объекта
-            URL url = new URL("http://localhost:9998");
+
+            URL url = new URL(args[0]);
+            //url = new URL("http://localhost:9998");
+            Varuint hubAdress = new Varuint(Long.parseLong(args[1], 16));
+            //hubAdress = new Varuint(0xef0);
 
             // Открытие соединения HttpURLConnection
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -28,7 +33,7 @@ public class HttpPostTest {
 
             body.setPayload(new Payload());
 
-            body.getPayload().setSrc(new Varuint(0xef0));
+            body.getPayload().setSrc(hubAdress);
             body.getPayload().setDst(new Varuint(0x3FFF));
             body.getPayload().setSerial(new Varuint(0x01));
             body.getPayload().setDev_type((byte) 0x01);
@@ -65,8 +70,8 @@ public class HttpPostTest {
             reader.close();
 
             // Вывод ответа сервера
-            System.out.println("Response Code: " + responseCode);
-            System.out.println("Response Body: " + response);
+            //System.out.println("Response Code: " + responseCode);
+            //System.out.println("Response Body: " + response);
 
             Decoder.decode(Base64.getUrlDecoder().decode(response.toString()));
 
@@ -76,7 +81,7 @@ public class HttpPostTest {
             e.printStackTrace();
         }
     }
-    //10111000 11110110 11010001 11110101 10010100 110001
+
 
     public static byte[] bitStringToByteArray(String bitString) {
         int len = bitString.length();
@@ -122,5 +127,8 @@ public class HttpPostTest {
             System.out.print(Integer.toBinaryString(b& 0xFF) + " "); // Печать в двоичном формате
         }
         System.out.println();
+    }
+
+    public static void getStatus(Varuint address) {
     }
 }

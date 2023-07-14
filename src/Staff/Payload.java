@@ -1,6 +1,6 @@
-import java.util.ArrayList;
+package Staff;
+
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Payload {
     private Varuint src;
@@ -19,8 +19,6 @@ public class Payload {
         dev_type = payloadBytes[src.getSize() + dst.getSize() + serial.getSize()];
         cmd = payloadBytes[src.getSize() + dst.getSize() + serial.getSize() + 1];
         cmd_body =  new CmdBody(cmd, dev_type, Arrays.copyOfRange(payloadBytes, src.getSize() + dst.getSize() + serial.getSize() + 2, payloadBytes.length));
-
-
     }
 
     public Varuint getSrc() {

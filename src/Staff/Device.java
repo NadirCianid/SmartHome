@@ -1,3 +1,5 @@
+package Staff;
+
 public class Device{
     private String dev_name;
     private DevProps dev_props;

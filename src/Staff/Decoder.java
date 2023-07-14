@@ -1,10 +1,12 @@
+package Staff;
+
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Decoder {
     public static void decode(byte[] packet) {  //преобразует массив байтов в список payloads
-       // URLBase64.binaryPrint(packet);
+       // Staff.URLBase64.binaryPrint(packet);
 
         ArrayList<Payload> payloads = new ArrayList<>();
         int pivot = -1; //позиция crc8 на данном шаге
@@ -17,7 +19,7 @@ public class Decoder {
 
         }
 
-        payloads.forEach(System.out::println);
+        //payloads.forEach(System.out::println);
     }
 
     public static String byteArrayToString(byte[] bytes) {

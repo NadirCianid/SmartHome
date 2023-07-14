@@ -1,10 +1,12 @@
+package Staff;
+
 import java.util.Arrays;
 import java.util.Base64;
 
 public class URLBase64 {
     public static void main(String[] args) {
         // Исходная строка для кодирования
-        String originalString = "DbMG_38BBgbw9NH1lDGnD7MG_38CBgIHVElNRVIwMV8";
+        String originalString = "DYEg_38DBga0-piElTGJFwL_fwEDAghTV0lUQ0gwMwEGTEFNUDAyIA-BIP9_BAYCB1RJTUVSMDF_DoIg_38CBAIGTEFNUDAyOQ";
 
 
 
